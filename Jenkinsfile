@@ -22,7 +22,9 @@ pipeline{
         }
 	
 	stage('Release') {
-	   steps { sh ''' oc project yfbzrr-jenkins oc start-build greeting-console --follow --wait ''' }
+	   steps { sh ''' 
+			  oc project yfbzrr-jenkins 
+		          oc start-build greeting-console --follow --wait ''' }
 
 			}
 
