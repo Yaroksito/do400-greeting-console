@@ -22,7 +22,7 @@ pipeline{
         }
 	
 	stage('ServiceAccount') {
-	   step { sh ''' oc adm policy add-role-to-user edit system:serviceaccount:yfbzrr-jenkins:jenkins ''' }
+	   steps { sh ''' oc adm policy add-role-to-user edit system:serviceaccount:yfbzrr-jenkins:jenkins ''' }
 				}
         stage('Release'){
 	   steps { sh ''' oc start-build greeting-console --follow --wait ''' }
