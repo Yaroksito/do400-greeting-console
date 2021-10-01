@@ -21,8 +21,13 @@ pipeline{
             }
         }
 	
+	stage('Release') {
+	   steps { sh ''' oc project yfbzrr-jenkins oc start-build greeting-console  --follow --wait ''' }
+
+			}
+
 	stage('ServiceAccount') {
-	   steps { sh ''' oc policy add-role-to-user edit system:serviceaccount:yfbzrr-jenkins:jenkins ''' }
+	   steps { sh ' oc policy add-role-to-user edit system:serviceaccount:yfbzrr-jenkins:jenkins' }
 				}
     }
 }
